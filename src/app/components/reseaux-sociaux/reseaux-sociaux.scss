@@ -1,0 +1,10 @@
+.reseaux_sociaux {
+    max-width: 1080px;
+    margin: 0 auto;
+    img {
+        margin: 15px auto 35px;
+        @media screen and (min-width: 992px) {
+            margin: 15px auto 80px;
+        }
+    }
+}

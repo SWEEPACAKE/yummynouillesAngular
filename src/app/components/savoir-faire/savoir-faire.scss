@@ -1,0 +1,8 @@
+@use '../../../variables';
+.savoir_faire {
+    p {
+        font-family: variables.$montserrat;
+        font-weight: 500;
+        font-size: 20px;
+    }
+}

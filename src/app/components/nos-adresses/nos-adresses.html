@@ -1,0 +1,17 @@
+<div class="container">
+    <div class="nos_adresses mb-5">
+        <div class="text-center">
+            <h3 class="text-uppercase mb-5">Nos adresses</h3>
+        </div>
+        <div class="text-center d-md-flex justify-content-md-between">
+            @for(monAdresse of mesAdresses; track monAdresse.id) {
+                <div class="d-inline-block text-start mb-3">
+                    <img [src]="monAdresse.photoUrl" class="img-fluid"/>
+                    <h4>{{ monAdresse.nom }}</h4>
+                    <p>{{ monAdresse.adresseRue }}</p>
+                    <p>{{ monAdresse.adresseCPVille }}</p>
+                </div>
+            }
+        </div>
+    </div>
+</div>

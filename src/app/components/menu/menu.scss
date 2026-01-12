@@ -1,0 +1,45 @@
+@use '../../../variables';
+/************************
+
+
+            MENU
+
+
+**************************/
+nav {
+    padding: 15px 25px;
+    .logo_menu {
+        margin: 0px 15px;
+    }
+    ul {
+        margin-bottom: 0;
+        li {
+            a {
+                font-family: variables.$bebas;
+                font-weight: 500;
+                margin: 0 5px; 
+                font-size: 27px;
+                color: #000;
+                text-decoration: none;
+                position: relative;
+                &.active {
+                    &:after {
+                        position: absolute;
+                        bottom: -4px;
+                        content: "";
+                        width: 100%;
+                        transform: translate(-50%);
+                        left: 50%;
+                        height: 4px;
+                        background-color: variables.$rouge;
+                        transition: all 0.5s ease;
+                        display: block;
+                    }
+                }
+                @media screen and (min-width: 992px) {
+                    margin: 0 15px; 
+                }
+            }
+        }
+    }
+}

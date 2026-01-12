@@ -1,0 +1,58 @@
+{
+  "liensMenu": [
+    {
+        "id": 1,
+        "lien": "#accueil",
+        "libelle": "Accueil"
+    },
+    {
+        "id": 2,
+        "lien": "#menu",
+        "libelle": "Menu"
+    },
+    {
+        "id": 3,
+        "lien": "#contact",
+        "libelle": "Contact"
+    }
+  ], 
+  "adresses": [
+    {
+        "id": 1,
+        "photoUrl": "/images/Facade_Yummy_Nouille_1_1_20.jpg",
+        "nom": "Yummy Noodle",
+        "adresseRue": "185 rue de Lancry",
+        "adresseCPVille": "75010 Paris"
+    },
+    {
+        "id": 2,
+        "photoUrl": "/images/Facade_Yummy_Nouille_2_1_18.jpg",
+        "nom": "Yu Noodle My",
+        "adresseRue": "350 rue Saint-Guillaume",
+        "adresseCPVille": "75007 Paris"
+    },
+    {
+        "id": 3,
+        "photoUrl": "/images/Facade_Yummy_Nouille_3_1_34.jpg",
+        "nom": "Les Yummy Nouilles",
+        "adresseRue": "208 rue au Maire",
+        "adresseCPVille": "75003 Paris"
+    }
+  ], 
+  "articleSavoirFaire": {
+    "titre": "Notre savoir-faire",
+    "contenu": "Depuis près de 10 ans maintenant, nous partageons avec vous les meilleures recettes. Nos plats ont tous été conçus, et affinés au fil des années et des goûts. Nous vous apportons le meilleur de l’Asie de l’Est en plein coeur de Paris. Chaque année, nous reprenons tous nos plats pour les améliorer, les modifier et qu’ils vous plaisent toujours plus. Nous espérons que vous vous régalerez en dégustant nos plats."
+  }, 
+  "postsReseauxSociaux": [
+    "/images/Yummy Nouilles img 1.jpg", 
+    "/images/Yummy Nouilles img 4.jpg", 
+    "/images/Yummy Nouilles img 2.jpg", 
+    "/images/Yummy Nouilles img 6.jpg", 
+    "/images/Yummy Nouilles img 5.jpg", 
+    "/images/Yummy Nouilles img 3.jpg"
+  ],
+  "articleContact": {
+    "titre": "Contactez-nous",
+    "contenu": "Vous souhaitez nous poser une question, nous faire un feedback, ou tout simplement nous contacter ? Écrivez-nous à <strong>yummy@noodles.fr</strong> ou appelez nous au <strong>01 13 86 23 42</strong>"
+  }
+}

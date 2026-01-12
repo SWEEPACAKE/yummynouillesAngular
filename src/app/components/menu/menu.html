@@ -1,0 +1,14 @@
+<header>
+    <nav class="d-flex align-items-center">
+        <img src="/images/Logo S.svg" class="img-fluid logo_menu">
+        <ul class="list-unstyled navbar">
+            @for(monLien of mesLiens; track monLien.id) {
+                <li>
+                    <a [href]="monLien.lien" [class.active]="monLien.id == 1">
+                        {{ monLien.libelle }}
+                    </a>
+                </li>
+            }
+        </ul>
+    </nav>
+</header>
