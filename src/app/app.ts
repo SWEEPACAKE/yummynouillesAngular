@@ -1,4 +1,4 @@
-import { Component, signal } from '@angular/core';
+import { ChangeDetectorRef, Component, signal } from '@angular/core';
 
 // Import des composants custom
 import { Menu } from "./components/menu/menu";
@@ -11,7 +11,9 @@ import { Contact } from "./components/contact/contact";
 import { Footer } from "./components/footer/footer";
 
 // Import des données
-import * as jsonData from './assets/data.json';
+// import * as jsonData from './assets/data.json';
+
+import { ApiService } from './api-service';
 
 @Component({
   selector: 'app-root',
@@ -22,10 +24,35 @@ import * as jsonData from './assets/data.json';
 export class App {
   protected readonly title = signal('yummynouilles');
 
-  dataMenu: any = jsonData.liensMenu;
-  dataAdresses: any = jsonData.adresses;
-  articleSavoirFaire: any = jsonData.articleSavoirFaire;
-  postsReseauxSociaux: any = jsonData.postsReseauxSociaux;
-  articleContact: any = jsonData.articleContact;
+  dataMenu: any[] = [];
+  dataAdresses: any[] = [];
+  articleSavoirFaire: any[] = [];
+  postsReseauxSociaux: any[] = [];
+  articleContact: any[] = [];
+
+  constructor(private monApiService: ApiService, private cdr: ChangeDetectorRef) {
+    this.monApiService.getJsonData().subscribe({
+      next: (response) => {
+        let returnedArray = JSON.parse(response);
+        this.dataMenu = returnedArray.liensMenu;
+        this.dataAdresses = returnedArray.adresses;
+        this.articleSavoirFaire = returnedArray.articles[0];
+        this.postsReseauxSociaux = returnedArray.postsReseauxSociaux;
+        this.articleContact = returnedArray.articles[1];
+
+        this.cdr.detectChanges();
+      },
+      error: (err) => {
+        switch(err.status) {
+          case 401:
+            console.log('Erreur 401 : Token manquant');
+            break;
+          case 403:
+            console.log('Erreur 403 : Accès interdit');
+            break;
+        }
+      }
+    });
+  }
 
 }

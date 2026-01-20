@@ -39,20 +39,42 @@
         "adresseCPVille": "75003 Paris"
     }
   ], 
-  "articleSavoirFaire": {
-    "titre": "Notre savoir-faire",
-    "contenu": "Depuis près de 10 ans maintenant, nous partageons avec vous les meilleures recettes. Nos plats ont tous été conçus, et affinés au fil des années et des goûts. Nous vous apportons le meilleur de l’Asie de l’Est en plein coeur de Paris. Chaque année, nous reprenons tous nos plats pour les améliorer, les modifier et qu’ils vous plaisent toujours plus. Nous espérons que vous vous régalerez en dégustant nos plats."
-  }, 
+  "article": [
+    {
+      "id": 1,
+      "titre": "Notre savoir-faire",
+      "contenu": "Depuis près de 10 ans maintenant, nous partageons avec vous les meilleures recettes. Nos plats ont tous été conçus, et affinés au fil des années et des goûts. Nous vous apportons le meilleur de l’Asie de l’Est en plein coeur de Paris. Chaque année, nous reprenons tous nos plats pour les améliorer, les modifier et qu’ils vous plaisent toujours plus. Nous espérons que vous vous régalerez en dégustant nos plats."
+    },
+    {
+      "id": 2,
+      "titre": "Contactez-nous",
+      "contenu": "Vous souhaitez nous poser une question, nous faire un feedback, ou tout simplement nous contacter ? Écrivez-nous à <strong>yummy@noodles.fr</strong> ou appelez nous au <strong>01 13 86 23 42</strong>"
+    }
+  ], 
   "postsReseauxSociaux": [
-    "/images/Yummy Nouilles img 1.jpg", 
-    "/images/Yummy Nouilles img 4.jpg", 
-    "/images/Yummy Nouilles img 2.jpg", 
-    "/images/Yummy Nouilles img 6.jpg", 
-    "/images/Yummy Nouilles img 5.jpg", 
-    "/images/Yummy Nouilles img 3.jpg"
-  ],
-  "articleContact": {
-    "titre": "Contactez-nous",
-    "contenu": "Vous souhaitez nous poser une question, nous faire un feedback, ou tout simplement nous contacter ? Écrivez-nous à <strong>yummy@noodles.fr</strong> ou appelez nous au <strong>01 13 86 23 42</strong>"
-  }
+    {
+      "id": 1,
+      "path": "/images/Yummy Nouilles img 1.jpg"
+    },
+    {
+      "id": 2,
+      "path": "/images/Yummy Nouilles img 4.jpg"
+    },
+    {
+      "id": 3,
+      "path": "/images/Yummy Nouilles img 2.jpg"
+    },
+    {
+      "id": 4,
+      "path": "/images/Yummy Nouilles img 6.jpg"
+    },
+    {
+      "id": 5,
+      "path": "/images/Yummy Nouilles img 5.jpg"
+    },
+    {
+      "id": 6,
+      "path": "/images/Yummy Nouilles img 3.jpg"
+    }
+  ]
 }

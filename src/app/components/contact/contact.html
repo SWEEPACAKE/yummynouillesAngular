@@ -3,4 +3,83 @@
         <h3 class="text-uppercase mb-4 mt-5">{{ monArticle.titre }}</h3>
         <p [innerHTML]="monArticle.contenu"></p>
     </div>
+    <form [formGroup]="formulaire" (ngSubmit)="envoyerFormulaire()" id="monFormulaire">
+        <div class="mb-3">
+            <div class="row">
+                <div class="col-12 col-md-6 text-center">
+                    <label class="form-label" for="id_adresse">Restaurant</label>
+                    <select 
+                    id="id_adresse" 
+                    class="form-control" 
+                    formControlName="id_adresse" 
+                    [class.is-invalid]="formulaire.get('id_adresse')?.invalid && formulaire.get('id_adresse')?.touched"
+                    required
+                    >
+                        <option value="">Choisissez un restaurant</option>
+                        @for(restaurant of mesAdresses; track restaurant.id) {
+                            <option [value]="restaurant.id">{{ restaurant.nom }}</option>
+                        }
+                    </select>
+                    @if(formulaire.get('id_adresse')?.hasError('required') && formulaire.get('id_adresse')?.touched) {
+                        <div class="text-danger small mt-1">Le restaurant est requis</div>
+                    }
+                </div>
+                <div class="col-12 col-md-6 text-center">
+                    <label class="form-label" for="nb_personnes">Nombre de convives</label>
+                    <input type="number" 
+                    class="form-control"
+                    [class.is-invalid]="formulaire.get('nb_personnes')?.invalid && formulaire.get('nb_personnes')?.touched"
+                    formControlName="nb_personnes"
+                    required/>
+                    @if(formulaire.get('nb_personnes')?.hasError('required') && formulaire.get('nb_personnes')?.touched) {
+                        <div class="text-danger small mt-1">Le nombre de convives est requis</div>
+                    }
+                    @if(formulaire.get('nb_personnes')?.hasError('min') && formulaire.get('nb_personnes')?.touched) {
+                        <div class="text-danger small mt-1">Au moins une personne est requise</div>
+                    }
+                    @if(formulaire.get('nb_personnes')?.hasError('max') && formulaire.get('nb_personnes')?.touched) {
+                        <div class="text-danger small mt-1">Pour des réservations de plus de 15 personnes, merci de nous appeler</div>
+                    }
+                </div>
+            </div>
+        </div>
+        
+        <div class="mb-3">
+            <div class="row">
+                <div class="col-12 col-md-6 text-center">
+                    <label class="form-label" for="date_resa">Date</label>
+                    <input type="date" class="form-control" [class.is-invalid]="formulaire.get('date_resa')?.invalid && formulaire.get('date_resa')?.touched"  formControlName="date_resa" required>
+                    @if(formulaire.get('date_resa')?.hasError('required') && formulaire.get('date_resa')?.touched) {
+                        <div class="text-danger small mt-1">La date est requise</div>
+                    }
+                </div>
+                <div class="col-12 col-md-6 text-center">
+                    <label class="form-label" for="heure_resa">Heure</label>
+                    <input type="time" step="900" class="form-control" [class.is-invalid]="formulaire.get('heure_resa')?.invalid && formulaire.get('heure_resa')?.touched"  formControlName="heure_resa" required>
+                    @if(formulaire.get('heure_resa')?.hasError('required') && formulaire.get('heure_resa')?.touched) {
+                        <div class="text-danger small mt-1">L'heure est requise</div>
+                    }
+                </div>
+            </div>
+        </div>
+        <div class="mb-3 text-center">
+            <label class="form-label" for="message">Message</label>
+            <textarea 
+            class="form-control" 
+            [class.is-invalid]="formulaire.get('message')?.invalid && formulaire.get('message')?.touched" placeholder="Précisions (allergies, accès handicapé, etc...)"
+            formControlName="message"
+            ></textarea>
+        </div>
+        <div class="text-end w-100">
+            <button type="submit" [disabled]="formulaire.invalid" class="btn-noir">Réserver</button>
+        </div>
+    </form>
+    <div class="alert alert-success text-center d-none" role="alert" id="confirmation">
+        Nous avons bien reçu votre réservation et nous avons hâte de vous recevoir ! Voici votre numéro de réservation : <span id="resanumber">{{ numero_reservation }}</span>
+        <br>
+        <img src="images/happy_yummy.png" class="img-fluid"/>
+    </div>
+    <div class="alert alert-danger d-none" role="alert" id="erreur">
+        Votre réservation n'a pas pu être enregistrée, nous vous invitons à nous appeler.
+    </div>
 </div>

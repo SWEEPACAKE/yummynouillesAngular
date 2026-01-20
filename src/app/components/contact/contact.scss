@@ -5,4 +5,26 @@
         font-weight: 500;
         font-size: 20px;
     }
+    img {
+        max-width: 160px;
+        margin: 25px auto;
+    }
+    form {
+        margin-top: 25px;
+        padding: 25px 35px;
+        background-color: variables.$rouge;
+        label {
+            font-family: variables.$bebas;
+            font-size: 20px;
+            text-transform: uppercase;
+            text-align: center;
+            margin: 25px auto 15px;
+        }
+        button {
+            &:disabled {
+                background-color: rgba(0, 0, 0, 0.5);
+                color: rgba(255, 255, 255, 0.5);
+            }
+        }
+    }
 }

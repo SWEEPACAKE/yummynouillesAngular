@@ -7,5 +7,5 @@ import { Component, Input } from '@angular/core';
   styleUrl: './reseaux-sociaux.scss',
 })
 export class ReseauxSociaux {
-  @Input() images: string[] = [];
+  @Input() images: any[] = [];
 }
