@@ -1,4 +1,4 @@
-import { ChangeDetectorRef, Component, signal } from '@angular/core';
+import { Component, signal } from '@angular/core';
 
 // Import des composants custom
 import { Menu } from "./components/menu/menu";
@@ -24,23 +24,22 @@ import { ApiService } from './api-service';
 export class App {
   protected readonly title = signal('yummynouilles');
 
-  dataMenu: any[] = [];
-  dataAdresses: any[] = [];
-  articleSavoirFaire: any[] = [];
-  postsReseauxSociaux: any[] = [];
-  articleContact: any[] = [];
+  dataMenu = signal<any>([]);
+  dataAdresses = signal<any>([]);
+  articleSavoirFaire = signal<any>([]);
+  postsReseauxSociaux = signal<any>([]);
+  articleContact = signal<any>([]);
 
-  constructor(private monApiService: ApiService, private cdr: ChangeDetectorRef) {
+  constructor(private monApiService: ApiService) {
+    
     this.monApiService.getJsonData().subscribe({
       next: (response) => {
         let returnedArray = JSON.parse(response);
-        this.dataMenu = returnedArray.liensMenu;
-        this.dataAdresses = returnedArray.adresses;
-        this.articleSavoirFaire = returnedArray.articles[0];
-        this.postsReseauxSociaux = returnedArray.postsReseauxSociaux;
-        this.articleContact = returnedArray.articles[1];
-
-        this.cdr.detectChanges();
+        this.dataMenu.set(returnedArray.liensMenu);
+        this.dataAdresses.set(returnedArray.adresses);
+        this.articleSavoirFaire.set(returnedArray.articles[0]);
+        this.postsReseauxSociaux.set(returnedArray.postsReseauxSociaux);
+        this.articleContact.set(returnedArray.articles[1]);
       },
       error: (err) => {
         switch(err.status) {

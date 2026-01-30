@@ -1,10 +1,10 @@
-<app-menu [mesLiens]="dataMenu"></app-menu>
+<app-menu [mesLiens]="dataMenu()"></app-menu>
 <app-header></app-header>
-<app-nos-adresses [mesAdresses]="dataAdresses"></app-nos-adresses>
+<app-nos-adresses [mesAdresses]="dataAdresses()"></app-nos-adresses>
 <app-bandeau-rouge></app-bandeau-rouge>
 <div class="container">
-  <app-savoir-faire [monArticle]="articleSavoirFaire"></app-savoir-faire>
-  <app-reseaux-sociaux [images]="postsReseauxSociaux"></app-reseaux-sociaux>
-  <app-contact [mesAdresses]="dataAdresses" [monArticle]="articleContact"></app-contact>
+  <app-savoir-faire [monArticle]="articleSavoirFaire()"></app-savoir-faire>
+  <app-reseaux-sociaux [images]="postsReseauxSociaux()"></app-reseaux-sociaux>
+  <app-contact [mesAdresses]="dataAdresses()" [monArticle]="articleContact()"></app-contact>
 </div>
 <app-footer></app-footer>

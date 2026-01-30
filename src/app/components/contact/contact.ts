@@ -1,4 +1,4 @@
-import { ChangeDetectorRef, Component, Input } from '@angular/core';
+import { Component, signal, Input } from '@angular/core';
 
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 
@@ -13,10 +13,10 @@ import { ApiService } from '../../api-service';
 export class Contact {
   @Input() mesAdresses: any[] = [];
   @Input() monArticle: any = {};
-  numero_reservation: number = 0;
+  numero_reservation = signal<number>(0);
 
   formulaire: FormGroup;
-  constructor(private fb: FormBuilder, private monApiService: ApiService, private cdr: ChangeDetectorRef) {
+  constructor(private fb: FormBuilder, private monApiService: ApiService) {
     this.formulaire = this.fb.group({
       id_adresse: ['', [Validators.required]],
       nb_personnes: ['', [Validators.required, Validators.min(1), Validators.max(15)]],
@@ -38,12 +38,11 @@ export class Contact {
         document.getElementById("monFormulaire")?.remove();
         let resultat = JSON.parse(response);
         if(resultat.success) {
-          this.numero_reservation = resultat.numero_reservation;
+          this.numero_reservation.set(resultat.numero_reservation);
           document.getElementById('confirmation')?.classList.remove('d-none');
         } else {
           document.getElementById('erreur')?.classList.remove('d-none');
         }
-        this.cdr.detectChanges();
       }, 
       error: (e) => {
         switch(e.status) {
